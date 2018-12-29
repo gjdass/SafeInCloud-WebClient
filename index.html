@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SafeInCloud WebUI</title>
+        <script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script> <!-- aes -->
+        <script src="https://cdn.jsdelivr.net/pako/1.0.3/pako.min.js"></script> <!-- zlib -->
+        <script src="https://cdn.rawgit.com/abdmob/x2js/master/xml2json.js"></script> <!-- Xml to/from Json -->
+        <script src="./libs/sha1.js"></script> <!-- sha1 -->
+        <script src="./libs/pbkdf2.js"></script> <!-- pbkdf2 -->
+        <script src="./libs/structjs.js"></script> <!-- struct python ... in JS :) -->
+        <script src="./script.js"></script> <!-- our script -->
+    </head>
+    <body>
+        <h1>
+            Welcome to SafeInCloud open source web UI
+        </h1>
+        <p>
+            It's <u><b>very ugly</b></u> with no presentation at all (for now ?), but this first version works :)
+            <ul>
+                <li>Opon developer console (F12)</li>
+                <li>Select .db SafeInCloud file</li>
+                <li>Hit Import</li>
+                <li>Hit Decrypt</li>
+                <li>You got it (-> in the Console at least :P ) !</li>
+            </ul>
+        </p>
+        <br>
+        <input type="password" id="passwordField" placeholder="SafeInCloud Password">
+        <input type="file" id="fileInput">
+        <button class="importBtn" onclick="readDbFile()">1- Import</button>
+        <button class="decryptBtn" onclick="go()">2- Decrypt</button>
+
+        <div class="bottomDiv">
+            <p>
+                Thanks to <a href="https://github.com/joncastro/" target="_blank">@joncastro</a> who <a href="https://github.com/joncastro/SafeInCloud/blob/master/desafe.py" target="_blank">implemented it</a> in Python and from who I took example.
+            </p>
+            <p>
+                AES-JS, Pako, xml2json, pbkdf2, sha1
+            </p>
+        </div>
+    </body>
+    <style>
+        html {
+            min-height: 100%;
+        }
+        body {
+            font-family: Consolas, Arial, Helvetica, sans-serif;
+        }
+        .bottomDiv {
+            display: block;
+            position: absolute;
+            bottom: 0;
+        }
+        button {
+            width: 100px;
+            height: 50px;
+            font-size: 1em;
+        }
+        .importBtn {
+            background-color: orange;
+        }
+        .decryptBtn {
+            background-color: green;
+        }
+    </style>
+</html>
